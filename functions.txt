@@ -1,0 +1,37 @@
+Exported functions:
+	- bool isPlayerUsingPiano(player thePlayer) | client & server
+	- int createPiano(float x, float y, float z, float rot,  [[ int interior, int dimension, int pianoColorR, int pianoColorG, int pianoColorB ]]) | server
+		-- Creates piano. Returns piano id.
+	- bool destroyPiano(int pianoID) | server
+		-- Deletes piano.
+	- bool setPianoColor(int pianoID, int r, int g, int b) | server
+		-- Sets piano color.
+
+Events:
+	Client:
+		- onClientEnterPiano
+			Triggered when player enters piano.
+			- Parameters: vehicle piano
+			- Source: player that enters piano 
+		- onClientExitPiano 
+			Triggered when player leaves piano.
+			Parameters: none
+			Source: player that leaves piano
+		- onClientPlayNote
+			Triggered when a single note is played by piano.
+			Parameters: int note, float x, float y, float z
+			Source: localPlayer
+		- onClientStopNote
+			Same as onClientPlayNote but triggers when note is being stopped.
+			Parameters: int note, float x, float y, float z
+			Source: localPlayer
+			
+	Server:
+		- onPlayerEnterPiano
+			Triggered when player enters piano.
+			- Parameters: vehicle piano
+			- Source: player that enters piano 
+		- onPlayerExitPiano 
+			Triggered when player leaves piano.
+			Parameters: none
+			Source: player that leaves piano

@@ -1,0 +1,95 @@
+<meta>
+	<info author="Brzysiek <brzysiekdev@gmail.com>" version="1.0" name="Playable Piano" description="Just piano. You can play it. :O" type="script" />
+	
+	<script src="libs/slither.lua" type="client" /> <!-- Classes -->
+	<script src="libs/slither.lua" type="server" />
+	
+	<script src="settings.lua" type="client" />
+	<script src="settings.lua" type="server" />
+	
+	<!-- Sounds --> 
+	<file src="snd/15.ogg" type="client" download="false"/>
+	<file src="snd/16.ogg" type="client" download="false"/>
+	<file src="snd/17.ogg" type="client" download="false"/>
+	<file src="snd/18.ogg" type="client" download="false"/>
+	<file src="snd/19.ogg" type="client" download="false"/>
+	<file src="snd/20.ogg" type="client" download="false"/>
+	<file src="snd/21.ogg" type="client" download="false"/>
+	<file src="snd/22.ogg" type="client" download="false"/>
+	<file src="snd/23.ogg" type="client" download="false"/>
+	<file src="snd/24.ogg" type="client" download="false"/>
+	<file src="snd/25.ogg" type="client" download="false"/>
+	<file src="snd/26.ogg" type="client" download="false"/>
+	<file src="snd/27.ogg" type="client" download="false"/>
+	<file src="snd/28.ogg" type="client" download="false"/>
+	<file src="snd/29.ogg" type="client" download="false"/>
+	<file src="snd/30.ogg" type="client" download="false"/>
+	<file src="snd/31.ogg" type="client" download="false"/>
+	<file src="snd/32.ogg" type="client" download="false"/>
+	<file src="snd/33.ogg" type="client" download="false"/>
+	<file src="snd/34.ogg" type="client" download="false"/>
+	<file src="snd/35.ogg" type="client" download="false"/>
+	<file src="snd/36.ogg" type="client" download="false"/>
+	<file src="snd/37.ogg" type="client" download="false"/>
+	<file src="snd/38.ogg" type="client" download="false"/>
+	<file src="snd/39.ogg" type="client" download="false"/>
+	<file src="snd/40.ogg" type="client" download="false"/>
+	<file src="snd/41.ogg" type="client" download="false"/>
+	<file src="snd/42.ogg" type="client" download="false"/>
+	<file src="snd/43.ogg" type="client" download="false"/>
+	<file src="snd/44.ogg" type="client" download="false"/>
+	<file src="snd/45.ogg" type="client" download="false"/>
+	<file src="snd/46.ogg" type="client" download="false"/>
+	<file src="snd/47.ogg" type="client" download="false"/>
+	<file src="snd/48.ogg" type="client" download="false"/>
+	<file src="snd/49.ogg" type="client" download="false"/>
+	<file src="snd/50.ogg" type="client" download="false"/>
+	<file src="snd/51.ogg" type="client" download="false"/>
+	<file src="snd/52.ogg" type="client" download="false"/>
+	<file src="snd/53.ogg" type="client" download="false"/>
+	<file src="snd/54.ogg" type="client" download="false"/>
+	<file src="snd/55.ogg" type="client" download="false"/>
+	<file src="snd/56.ogg" type="client" download="false"/>
+	<file src="snd/57.ogg" type="client" download="false"/>
+	<file src="snd/58.ogg" type="client" download="false"/>
+	<file src="snd/59.ogg" type="client" download="false"/>
+	<file src="snd/60.ogg" type="client" download="false"/>
+	<file src="snd/61.ogg" type="client" download="false"/>
+	<file src="snd/62.ogg" type="client" download="false"/>
+	<file src="snd/63.ogg" type="client" download="false"/>
+	<file src="snd/64.ogg" type="client" download="false"/>
+	<file src="snd/65.ogg" type="client" download="false"/>
+	<file src="snd/66.ogg" type="client" download="false"/>
+	<file src="snd/67.ogg" type="client" download="false"/>
+	<file src="snd/68.ogg" type="client" download="false"/>
+	<file src="snd/69.ogg" type="client" download="false"/>
+	<file src="snd/70.ogg" type="client" download="false"/>
+	<file src="snd/71.ogg" type="client" download="false"/>
+	<file src="snd/72.ogg" type="client" download="false"/>
+	<file src="snd/73.ogg" type="client" download="false"/>
+	<file src="snd/74.ogg" type="client" download="false"/>
+	<file src="snd/75.ogg" type="client" download="false"/>
+	
+	<!-- Object -->
+	<file src="models/piano.txd" type="client"/>
+	<file src="models/piano.dff" type="client"/>
+	
+	<!-- Background download -->
+	<script src="download_c.lua" type="client" />
+	<script src="download_s.lua" type="server" />
+	
+	<!-- Main stuff: key input, sound processing -->
+	<script src="sheets_c.lua" type="client" />
+	<script src="piano_c.lua" type="client" />
+	<script src="piano_s.lua" type="server" />
+	
+	<!-- Exported functions -->
+	<script src="exported_c.lua" type="client" />
+	<script src="exported_s.lua" type="server" />
+	<export function="isPlayerUsingPiano" type="client" />
+	<export function="isPlayerUsingPiano" type="server" />
+	<export function="isVehiclePiano" type="server" />
+	<export function="createPiano" type="server" />
+	<export function="destroyPiano" type="server" />
+	<export function="setPianoColor" type="server" />
+</meta>
