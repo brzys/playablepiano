@@ -7,7 +7,7 @@
 
 local sw, sh = guiGetScreenSize() 
 local sx, sy = sw/1366, sh/768
-class "CSheets"
+CSheets = class "CSheets"
 {
 	__init__= function(self)
 		-- TODO: add isBrowserSupported() after releasing 1.5.4
@@ -43,7 +43,9 @@ class "CSheets"
 		end 
 		self.renderFunc = function() self:onRender() end 
 		
-		requestBrowserDomains({"virtualpiano.net", "virtualpiano.net/music-sheets/", "i1.wp.com", "i2.wp.com"})
+		requestBrowserDomains({"*.virtualpiano.net", "*.virtualpiano.net/*", "http://virtualpiano.net/music-sheets", "https://virtualpiano.net/tag/easy/", "vpzone-xfojsycixf.netdna-ssl.com", "netdna.bootstrapcdn.com", "fonts.googleapis.com", "fonts.gstatic.com", 
+								"virtualpiano.net/music-sheets/", "i1.wp.com", "i2.wp.com", "s0.wp.com", "pixel.wp.com", 
+								"tag.imon", "stats.wp.com", "secure.gravatar.com", "i2.wp.com", "google-analytics.com", "googletagservices.com", "connect.facebook.net", "staticxx.facebook.com"})
 		addEventHandler("onClientBrowserWhitelistChange", root, function(changedDomains) 
 			for k,v in ipairs(changedDomains) do
 				if v == "virtualpiano.net" then  
@@ -51,6 +53,15 @@ class "CSheets"
 				end
 			end 
 		end) 
+		
+		addEventHandler("onClientBrowserResourceBlocked", self.browser, function()
+			function resourceBlocked(url,domain,reason)
+				if reason == 0 then
+					requestBrowserDomains({url})
+					requestBrowserDomains({domain})
+				end
+			end
+		end)
 	
 		addEventHandler("onClientBrowserCreated", self.browser, function()
 			if not isBrowserDomainBlocked("virtualpiano.net") then 

@@ -5,7 +5,7 @@
 	-- Sound synchronization, piano creation
 ]] 
 
-class "CPianoManager" 
+local CPianoManager = class "CPianoManager" 
 {
 	__init__ = function(self)
 		self.pianos = {} 

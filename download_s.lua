@@ -6,7 +6,7 @@
 ]] 
 
 
-class "CDownloadManager"
+local CDownloadManager = class "CDownloadManager"
 {
 	__init__ = function(self)
 		self.files = {}

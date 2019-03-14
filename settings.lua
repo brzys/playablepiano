@@ -13,7 +13,7 @@ PIANOS = -- place your pianos here
 	{2000.5, 1563.5, 14.85, 0}, -- lv ship
 }
 
-PIANO_MODEL = 485 -- https://wiki.multitheftauto.com/wiki/Vehicle_IDs
+PIANO_MODEL = 574 -- https://wiki.multitheftauto.com/wiki/Vehicle_IDs
 PIANO_COLOR = {20, 20, 20} -- default piano color (rgb)
 
 SOUND_VOLUME = 0.5
