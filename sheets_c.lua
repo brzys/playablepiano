@@ -54,12 +54,10 @@ CSheets = class "CSheets"
 			end 
 		end) 
 		
-		addEventHandler("onClientBrowserResourceBlocked", self.browser, function()
-			function resourceBlocked(url,domain,reason)
-				if reason == 0 then
-					requestBrowserDomains({url})
-					requestBrowserDomains({domain})
-				end
+		addEventHandler("onClientBrowserResourceBlocked", self.browser, function(url, domain, reason)
+			if reason == 0 then
+				requestBrowserDomains({url})
+				requestBrowserDomains({domain})
 			end
 		end)
 	
