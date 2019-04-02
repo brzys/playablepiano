@@ -14,6 +14,7 @@ CSheets = class "CSheets"
 		self.browserW, self.browserH = 730*sx, 400*sy
 		self.browserX, self.browserY = sw/2-self.browserW/2, sh/2.3-self.browserH/2
 		self.browser = createBrowser(self.browserW, self.browserH, false, false)
+
 	 	self.scrollUpdateFunc = function(key) -- any ideas why this doesn't work: please write to me :E
 			if not self.show then return end 
 			
@@ -43,9 +44,9 @@ CSheets = class "CSheets"
 		end 
 		self.renderFunc = function() self:onRender() end 
 		
-		requestBrowserDomains({"*.virtualpiano.net", "*.virtualpiano.net/*", "http://virtualpiano.net/music-sheets", "https://virtualpiano.net/tag/easy/", "vpzone-xfojsycixf.netdna-ssl.com", "netdna.bootstrapcdn.com", "fonts.googleapis.com", "fonts.gstatic.com", 
+		requestBrowserDomains({"virtualpiano.net", "*.virtualpiano.net", "*.virtualpiano.net/*", "http://virtualpiano.net/music-sheets", "https://virtualpiano.net/tag/easy/", "vpzone-xfojsycixf.netdna-ssl.com", "netdna.bootstrapcdn.com", "fonts.googleapis.com", "fonts.gstatic.com", 
 								"virtualpiano.net/music-sheets/", "i1.wp.com", "i2.wp.com", "s0.wp.com", "pixel.wp.com", 
-								"tag.imon", "stats.wp.com", "secure.gravatar.com", "i2.wp.com", "google-analytics.com", "googletagservices.com", "connect.facebook.net", "staticxx.facebook.com"})
+								"tag.imon", "stats.wp.com", "secure.gravatar.com", "i2.wp.com", "google-analytics.com", "googletagservices.com", "connect.facebook.net", "staticxx.facebook.com"}, true)
 		addEventHandler("onClientBrowserWhitelistChange", root, function(changedDomains) 
 			for k,v in ipairs(changedDomains) do
 				if v == "virtualpiano.net" then  
@@ -89,15 +90,13 @@ CSheets = class "CSheets"
 	load = function(self)
 		if not isElement(self.browser) then return end 
 		
-		loadBrowserURL(self.browser, "http://virtualpiano.net/music-sheets")
+		loadBrowserURL(self.browser, "https://virtualpiano.net/music-sheets")
 		-- focusBrowser(self.browser) onClientKey with this doesnt work :C
 		
 		addEventHandler("onClientKey", root, self.scrollUpdateFunc)
 		addEventHandler("onClientCursorMove", root, self.cursorUpdateFunc)
 		addEventHandler("onClientRender", root, self.renderFunc)
 		addEventHandler("onClientClick", root, self.clickUpdateFunc)
-		
-		addEventHandler("onClientBrowserDocumentReady", self.browser, function(url) if url == "http://virtualpiano.net/music-sheets" then injectBrowserMouseWheel(self.browser, -430, 0) end end)
 	end, 
 	
 	destroy = function(self)
@@ -113,6 +112,7 @@ CSheets = class "CSheets"
 	onRender = function(self)
 		if isElement(self.browser) and self.show then 
 			local floor = math.floor
+			
 			dxDrawImage(floor(self.browserX), floor(self.browserY), floor(self.browserW), floor(self.browserH), self.browser, 0, 0, 0, tocolor(255,255,255,255), true)
 		end 
 	end,
