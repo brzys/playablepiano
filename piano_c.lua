@@ -8,7 +8,7 @@
 local screenW, screenH = guiGetScreenSize() 
 local sx, sy = screenW/1366, screenH/768 
 
-class "CClientPianoHandler"
+local CClientPianoHandler = class "CClientPianoHandler"
 {
 	__init__ = function(self, object)
 		self.object = object 
@@ -172,8 +172,8 @@ class "CClientPianoHandler"
 	-- not onClientKey because of chords
 	onRender = function(self) 
 		if getKeyState(EXIT_KEY) or not isElement(self.object) then 
-			setControlState("enter_exit", true) -- exit vehicle
-			setTimer(setControlState, 200, 1, "enter_exit", false)
+			setPedControlState("enter_exit", true) -- exit vehicle
+			setTimer(setPedControlState, 200, 1, "enter_exit", false)
 			pianoManager:exitPiano()
 			return 
 		end 
@@ -261,7 +261,7 @@ class "CClientPianoHandler"
 	end, 
 }
 
-class "CClientPianoManager"
+local CClientPianoManager = class "CClientPianoManager"
 {
 	__init__ = function(self)
 		self.notes = {} 
@@ -347,7 +347,7 @@ class "CClientPianoManager"
 			end
 		end 
 		
-		local path = "snd/"..tostring(note)..".ogg"
+		local path = "snd/"..tostring(note)..".aac"
 		if fileExists(path) then 
 			local sound = playSound3D(path, x, y, z, false)
 			setSoundMaxDistance(sound, MAX_SOUND_DISTANCE)

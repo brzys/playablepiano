@@ -12,7 +12,7 @@ function round(num, idp)
   return math.floor(num * mult + 0.5) / mult
 end
 
-class "CClientDownloadManager"
+local CClientDownloadManager = class "CClientDownloadManager"
 {
 	__init__ = function(self)
 		self.downloadQueue = {}
